@@ -1,0 +1,15 @@
+name: GhostMute
+main: com.djrapitops.ghostmute.GhostMute
+version: 1.0.0
+
+commands:
+  ghostreload:
+    usage: /ghostreload
+    description: Reloads config 
+permissions:
+  GhostMute.bypass:
+    description: Bypasses fake message being shown
+    default: false
+  GhostMute.reload:
+    description: Reloads config
+    default: op
