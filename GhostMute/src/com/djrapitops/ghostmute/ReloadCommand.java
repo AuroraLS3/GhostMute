@@ -25,6 +25,7 @@ public class ReloadCommand implements CommandExecutor {
             }
         }
         plugin.reloadConfig();
+        plugin.refreshMuted();
         sender.sendMessage(ChatColor.GREEN+"[GhostMute] Plugin config reloaded");
         return true;
     }

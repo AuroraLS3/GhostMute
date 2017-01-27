@@ -1,15 +1,19 @@
 package com.djrapitops.ghostmute;
 
 import com.djrapitops.ghostmute.listeners.GhostMuteChatListener;
+import com.djrapitops.ghostmute.utils.MiscUtils;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class GhostMute extends JavaPlugin {
 
     private GhostMuteChatListener clistener;
+    private List<String> muted;
 
     @Override
     public void onEnable() {
@@ -22,8 +26,11 @@ public class GhostMute extends JavaPlugin {
         );
 
         saveConfig();        
-        
+        log(MiscUtils.checkVersion());
+        muted = new ArrayList<>();
+        muted.addAll(getConfig().getStringList("muted"));
         getCommand("ghostreload").setExecutor(new ReloadCommand(this));        
+        getCommand("gmute").setExecutor(new GMuteCommand(this));        
         clistener = new GhostMuteChatListener(this);
         
         log("GhostMute Enabled.");
@@ -68,4 +75,12 @@ public class GhostMute extends JavaPlugin {
         }
     }
 
+    void refreshMuted() {
+        muted.clear();
+        muted.addAll(getConfig().getStringList("muted"));
+    }
+
+    public List<String> getMuted() {
+        return muted;
+    }
 }

@@ -1,8 +1,6 @@
 package com.djrapitops.ghostmute.listeners;
 
 import com.djrapitops.ghostmute.GhostMute;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -21,6 +19,9 @@ public class GhostMuteChatListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onChat(AsyncPlayerChatEvent event) {
         Player p = event.getPlayer();
+        if (plugin.getMuted().contains(p.getUniqueId().toString())) {
+            event.setCancelled(true);
+        }
         if (p.hasPermission("GhostMute.bypass")) {
             return;
         }
