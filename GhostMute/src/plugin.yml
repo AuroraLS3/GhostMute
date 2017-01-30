@@ -1,6 +1,6 @@
 name: GhostMute
 main: com.djrapitops.ghostmute.GhostMute
-version: 1.1.0
+version: 1.1.1
 
 commands:
   ghostreload:
@@ -9,6 +9,9 @@ commands:
   gmute:
     usage: /gmute <player>
     description: Mutes/unmutes the player.
+  gmutelist:
+    usage: /gmutelist
+    description: Lists muted players.
 permissions:
   GhostMute.mute:
     description: Mute/unmute players

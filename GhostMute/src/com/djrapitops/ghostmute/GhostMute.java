@@ -31,6 +31,7 @@ public class GhostMute extends JavaPlugin {
         muted.addAll(getConfig().getStringList("muted"));
         getCommand("ghostreload").setExecutor(new ReloadCommand(this));        
         getCommand("gmute").setExecutor(new GMuteCommand(this));        
+        getCommand("gmutelist").setExecutor(new GMuteListCommand(this));        
         clistener = new GhostMuteChatListener(this);
         
         log("GhostMute Enabled.");

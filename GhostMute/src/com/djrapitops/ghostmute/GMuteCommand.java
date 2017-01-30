@@ -3,7 +3,6 @@ package com.djrapitops.ghostmute;
 import com.djrapitops.ghostmute.utils.UUIDFetcher;
 import java.util.List;
 import java.util.UUID;
-import static org.bukkit.Bukkit.getOfflinePlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
